@@ -400,10 +400,9 @@ const Review = styled.div`
 
 const ReviewHeader = styled.div`
     position: relative;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
     margin-left: -240px;
-
     &span {
         
     }
@@ -457,6 +456,7 @@ const ReviewUserInfo = styled.div`
     margin-left: 20px;
     font-size: 20px;
     margin-bottom: 10px;
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
 `;
@@ -559,10 +559,11 @@ const ReviewComment = styled.div`
 `;
 
 const ReviewProfile = styled.img`
-    width : 20px;
-    height : 20px;
+    width : 40px;
+    height : 40px;
     border-radius : 20px;
     margin: 3px;
+    margin-top: 10px; 
 `;
 
 const Btn = styled.button`
