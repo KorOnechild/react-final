@@ -326,7 +326,7 @@ const SignupModal = (props) => {
                       type="password"
                       placeholder="비밀번호"
                       onChange={onPassChange}></InputBox>
-                    <img src=".../modal_img/lock.png" />
+                    <img src="./src/modal/modal_img/lock.png" />
                   </div>
 
                   <p>{signPassAlert}</p>
@@ -338,7 +338,7 @@ const SignupModal = (props) => {
                       type="password"
                       placeholder="비밀번호 확인"
                       onChange={onPassCheckChange}></InputBox>
-                    <img src=".../redux/modal/modal_img/lock.png" />
+                    <img src="/modal/modal_img/lock.png" />
                   </div>
 
                   <p>{signCheckAlert}</p>
@@ -407,16 +407,94 @@ const SignupModal = (props) => {
 
 const Header = styled.header``;
 
-const Body = styled.body``;
+const Body = styled.body`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-const RadioGroup = styled.div``;
+  & button {
+    width: 100px;
+    height: 40px;
+    margin-top: 15px;
+    margin-left: 200px;
 
-const RadioBtn = styled.div``;
+    border: 1px solid black;
+    color: white;
+    background-color: black;
+  }
 
-const InputBox = styled.input``;
+  & p {
+    font-size: 10px;
+    color: red;
+    font-family: "Arita-dotum-Medium";
+  }
+`;
 
-const LockIcon = styled.span``;
+const RadioGroup = styled.div`
+  margin-bottom: 20px;
+`;
 
-const Footer = styled.footer``;
+const RadioBtn = styled.div`
+  margin-bottom: 8px;
+
+  & button {
+    width: 95px;
+    font-family: "Arita-dotum-Medium";
+  }
+`;
+
+const FormCheckText = styled.label`
+  margin: 10px;
+  width: 110px;
+  height: 35px;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: black;
+  font-size: 20px;
+  font-family: "Arita-dotum-Medium";
+
+  &:hover {
+    color: black;
+    font-weight: bold;
+    font-family: "Arita-dotum-Medium";
+  }
+`;
+
+const InputBox = styled.input`
+  width: 300px;
+  height: 40px;
+  background: transparent;
+  color: black;
+  margin-top: 10px;
+  border: 2px solid #f0f4c3;
+  font-family: "Arita-dotum-Medium";
+  font-size: 20px;
+
+  ::placeholder {
+    font-size: 15px;
+    color: gray;
+    font-family: "Arita-dotum-Medium";
+  }
+`;
+
+const LockIcon = styled.span`
+  margin: 0px;
+  padding: -10px;
+  margin-left: -20px;
+
+  .lock {
+    position: relative;
+    color: #19221f;
+    font-size: 20px;
+  }
+`;
+
+const Footer = styled.footer`
+  display: flex;
+  width: fit-content;
+  margin: auto;
+`;
 
 export default SignupModal;

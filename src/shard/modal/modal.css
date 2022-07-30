@@ -70,7 +70,6 @@
     align-items: center;
     width: 300px;
     margin: auto;
-    margin-top: 80px;
     
 }
 .LoginInput > input{
@@ -83,6 +82,7 @@
 }
 .LoginInput > input[type=email]{
     margin-bottom: 30px;
+    margin-top: 80px;
 }
 .LoginInput > input::placeholder{
     font-family: "Arita-dotum-SemiBold";
@@ -201,16 +201,15 @@ margin: 40px 155px auto 44px;
     width: 24px;
     height: 24px;
     position: absolute;
-    left: 78.89%;
-    right: 16.67%;
-    top: 43.83%;
-    bottom: 54.23%;
+    
+
 }
 
 .lock{
     height: 22px;
     width: 22px;
     color: #19221F;
+
 }
 
 .ImageDiv{
