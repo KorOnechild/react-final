@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import "./modal.css";
 import Logo_Cat from "../../css/Logo_Cat_lattee.png";
+import lock_Img from "../../shard/modal/modalmg/lock.png"
 import { instance } from "../axios";
 import { AiOutlineClose } from "react-icons/ai";
 import { AiOutlineLock } from "react-icons/ai";
@@ -326,7 +327,7 @@ const SignupModal = (props) => {
                       type="password"
                       placeholder="비밀번호"
                       onChange={onPassChange}></InputBox>
-                    <img src="./src/modal/modal_img/lock.png" />
+                    <img src={lock_Img} />
                   </div>
 
                   <p>{signPassAlert}</p>
@@ -338,7 +339,7 @@ const SignupModal = (props) => {
                       type="password"
                       placeholder="비밀번호 확인"
                       onChange={onPassCheckChange}></InputBox>
-                    <img src="/modal/modal_img/lock.png" />
+                    <img src={lock_Img} />
                   </div>
 
                   <p>{signCheckAlert}</p>
