@@ -7,6 +7,7 @@ import CardList from "./CardList";
 import ScrollBtn from "./ScrollBtn";
 import ReviewBtn from "./ReviewBtn";
 
+import "../css/main/main.css"
 
 
 const Main = () => {
@@ -14,16 +15,18 @@ const Main = () => {
    
     return (
         <>
-            <div>
-                <Banner/>
-                <NavBtn/>
-                <CardList/>
-                <ReviewBtn/>
-                <ScrollBtn/>
+        <div className="main">
+            <div className="banner">
+                <Banner />
             </div>
+            <div className="element">
+                <NavBtn />
+                <CardList />
+                <ScrollBtn />
+            </div>
+        </div>
         </>
     )
 }
-
 
 export default Main;
