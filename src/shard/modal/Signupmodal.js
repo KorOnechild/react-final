@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import "./modal.css";
 import Logo_Cat from "../../css/Logo_Cat_lattee.png";
-import lock_Img from "../../shard/modal/modalmg/lock.png"
+import lock_Img from "../../shard/modal/modalmg/lock.png";
 import { instance } from "../axios";
 import { AiOutlineClose } from "react-icons/ai";
 import { AiOutlineLock } from "react-icons/ai";
@@ -309,7 +309,7 @@ const SignupModal = (props) => {
                     placeholder="닉네임"
                     onChange={onNicChange}
                   />
-                  <p>{signNicAlert}</p>
+                  <p className="ErrorMessage">{signNicAlert}</p>
                 </div>
                 <div>
                   <InputBox
@@ -318,7 +318,7 @@ const SignupModal = (props) => {
                     placeholder="이메일"
                     onChange={onEmailChange}
                   />
-                  <p>{signEmailAlert}</p>
+                  <p className="ErrorMessage">{signEmailAlert}</p>
                 </div>
                 <div className="UserInputLock">
                   <div>
@@ -327,10 +327,9 @@ const SignupModal = (props) => {
                       type="password"
                       placeholder="비밀번호"
                       onChange={onPassChange}></InputBox>
-                    <img src={lock_Img} />
                   </div>
 
-                  <p>{signPassAlert}</p>
+                  <p className="ErrorMessage">{signPassAlert}</p>
                 </div>
                 <div className="UserInputLock">
                   <div>
@@ -339,10 +338,9 @@ const SignupModal = (props) => {
                       type="password"
                       placeholder="비밀번호 확인"
                       onChange={onPassCheckChange}></InputBox>
-                    <img src={lock_Img} />
                   </div>
 
-                  <p>{signCheckAlert}</p>
+                  <p className="ErrorMessage">{signCheckAlert}</p>
                 </div>
               </div>
 
@@ -360,15 +358,12 @@ const SignupModal = (props) => {
                     justifyContent: "center",
                     flexDirection: "column",
                   }}>
-                  <label
-                    htmlFor="input-file"
-                    onChange={handleAddImages}
-                    style={{
-                      marginTop: "15px",
-                      fontFamily: "Arita-dotum-Medium",
-                    }}>
-                    <input type="file" id="input-file" />
-                  </label>
+                  <div className="FileUpload">
+                    <label htmlFor="input-file" onChange={handleAddImages}>
+                      <input type="file" id="input-file" />
+                    </label>
+                  </div>
+                  {/* 로고/프로필 미리보기 삭제 필요 */}
                   <div
                     style={{
                       display: "flex",
@@ -408,76 +403,20 @@ const SignupModal = (props) => {
 
 const Header = styled.header``;
 
-const Body = styled.body`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const Body = styled.body``;
 
-  & button {
-    width: 100px;
-    height: 40px;
-    margin-top: 15px;
-    margin-left: 200px;
+const RadioGroup = styled.div``;
 
-    border: 1px solid black;
-    color: white;
-    background-color: black;
-  }
+const RadioBtn = styled.div``;
 
-  & p {
-    font-size: 10px;
-    color: red;
-    font-family: "Arita-dotum-Medium";
-  }
-`;
-
-const RadioGroup = styled.div`
-  margin-bottom: 20px;
-`;
-
-const RadioBtn = styled.div`
-  margin-bottom: 8px;
-
-  & button {
-    width: 95px;
-    font-family: "Arita-dotum-Medium";
-  }
-`;
-
-const FormCheckText = styled.label`
-  margin: 10px;
-  width: 110px;
-  height: 35px;
-  border: none;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  color: black;
-  font-size: 20px;
-  font-family: "Arita-dotum-Medium";
-
-  &:hover {
-    color: black;
-    font-weight: bold;
-    font-family: "Arita-dotum-Medium";
-  }
-`;
+const FormCheckText = styled.label``;
 
 const InputBox = styled.input`
-  width: 300px;
-  height: 40px;
-  background: transparent;
-  color: black;
-  margin-top: 10px;
-  border: 2px solid #f0f4c3;
+  //살릴 것
+  color: #19221f;
   font-family: "Arita-dotum-Medium";
-  font-size: 20px;
-
-  ::placeholder {
-    font-size: 15px;
-    color: gray;
-    font-family: "Arita-dotum-Medium";
-  }
+  font-size: 16px;
+  padding-left: 10px;
 `;
 
 const LockIcon = styled.span`
