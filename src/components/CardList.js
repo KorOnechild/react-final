@@ -27,27 +27,21 @@ const CardList = () => {
         <div className='containDiv'>
 
             {result?.map((item, i) => (
-                <><div className='rowDiv'>
+                <>
                     {item?.map((post, j) => (
-
                         <div className='contentDiv'
                             onClick={() => { navigate(`/detail/${item[j]?.cafeid}/review`) }}
                             key={post.postid}
                         >
                             <div className='contentImg' style={{ backgroundImage: `url(${post.img})`, backgroundSize: 'cover' }}>
-                                <div className='totalText'>
-                                    <div className='textAutoLayout'>
-                                        <p className='contentTitle'>{post.cafename}</p>
-                                    </div>
+                                <div className='textAutoLayout'>
+                                    <p className='contentTitle'>{post.cafename}</p>
                                 </div>
-
                             </div>
                         </div>
                     ))}
-                </div>
                 </>
             ))}
-
         </div>
     );
 }

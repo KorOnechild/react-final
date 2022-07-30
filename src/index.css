@@ -11,6 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#root {
+  width: 100%;
+  overflow: hidden;
+}
+
 /* 아리따 돋움체 */
 @font-face {
   font-family: 'Arita-dotum-Medium';

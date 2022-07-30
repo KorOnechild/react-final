@@ -5,26 +5,17 @@
     */
     width: 1200px;
     margin: 0 auto;
+    display:flex;
 	flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.rowDiv {
-    width: 1200px;
-    height: 380px;
-    margin-bottom: 30px;
-    display: flex;
-    float: left;
+    gap: 2%;
+    row-gap: 25px;
 }
 
 .contentDiv {
-    margin-right: 30px;
-    width: 380px;
+    width: 32%;
     height: 380px;
-    display: inline-block;
     position: relative;
+    overflow: hidden;
     /* background-size: cover;
     background-position: 50% center;
     background-repeat: no-repeat;
@@ -33,40 +24,33 @@
     cursor: pointer;  */
 }
 
-
 .contentImg {
-    width: inherit;
-    height: inherit;
+    width: 100%;
+    height: 100%;
     text-align: justify;
     border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.4;
 }
 
-.totalText{
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 380px;
-    height: 42px;
+.contentImg:hover{
+    transform: scale(1.05);
 }
 
 .textAutoLayout {
     position: absolute;
-    height: inherit;
     right: 12px;
     bottom: 12px;
-    padding: 10px 5px;
-    gap: 10px;
+    padding: 0 5px;
     background: rgba(36, 36, 36, 0.5);
     border-radius: 5px;
-}
+    line-height: 0.4;
+  }
 
-.textAutoLayout > p {
+  .textAutoLayout > p {
     display: block;
-
     font-size: 20px;
     color: white;
     cursor: pointer;
-    font-family: 'Arita-dotum-Bold';
-}
-
+    font-family: "Arita-dotum-Bold";
+  }
