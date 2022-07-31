@@ -10,8 +10,6 @@
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-
-
 .modal button {
     outline: none;
     cursor: pointer;
@@ -28,6 +26,7 @@
     animation: modal-show 0.1s;
 }
 
+/*x 아이콘*/
 .ExitBtnWhite{
     width: 25px;
     height: 25px;
@@ -366,7 +365,7 @@ footer > .SignBtn{
     margin-bottom: 20px;
 }
 
-/*카페등록 페이지*/
+/*카페등록 모달*/
 
 .CafeHeader{
     font-family: "Arita-dotum-Medium";
@@ -405,6 +404,14 @@ footer > .SignBtn{
     line-height: 16px;
     font-family: "Arita-dotum-Light";
   }
+
+.OwnerCafeName > p{
+    font-family: "Arita-dotum-Medium";
+    color: #19221F;
+    font-size: 16px;
+    line-height: 16px;
+    margin-left: 10px;
+}
 
 
 /*게시하기 버튼*/

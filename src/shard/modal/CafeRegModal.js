@@ -152,8 +152,9 @@ const CafeReg = (props) => {
                       <br />
                       등록해주세요!
                     </p>
-                    <p>등록하신 카페명</p>
-                    <p>{cafename}</p>
+                    <div className="OwnerCafeName">
+                      <p>{cafename}</p>
+                    </div>
                   </div>
                 )}
                 <h3>우편번호 찾기</h3>
