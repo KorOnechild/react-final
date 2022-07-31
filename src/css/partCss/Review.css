@@ -1,0 +1,13 @@
+.like-starDiv {
+    color: #19221f;
+    display: flex;
+}
+
+.star{
+    font-size: 24px;
+}
+
+.star-text{
+    font-size: 14px;
+    font-family: "Arita-dotum-SemiBold";
+}

@@ -35,7 +35,7 @@ const Banner = () => {
 
 const StyledSlider = styled(Slider)`
   //  //슬라이드 컨테이너 영역
-  all: unset
+  all: unset;
    position: relative;
    height: 700px;  
    box-sizing: border-box;

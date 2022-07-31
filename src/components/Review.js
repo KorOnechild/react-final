@@ -20,7 +20,7 @@ const Review = () => {
     React.useEffect(()=>{
       setIsLogin(localStorage?.getItem("token")) 
     },[localStorage.getItem("token")])
-    console.log(isLogin)
+   
 
   return (
     <>
@@ -45,7 +45,7 @@ const ReviewBtn = styled.button`
   border-radius: 5px;
   border: none;
   outline: none;
-  
+  margin-right:60px;
   cursor: pointer;
 `;
 

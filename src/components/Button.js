@@ -69,7 +69,7 @@ const Button = (props) => {
 Button.defaultProps = {
     place: null,
     bg: false,
-    background: "#fff",
+    // background: "#fff",
     margin: false,
     type: false,
     width: "100%",

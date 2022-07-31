@@ -9,22 +9,22 @@ import ReviewBtn from "./ReviewBtn";
 
 import "../css/main/main.css"
 
-
 const Main = () => {
 
-   
     return (
         <>
-        <div className="main">
-            <div className="banner">
-                <Banner />
+            <div className="main">
+                <div className="banner">
+                    <Banner/>
+                </div>
+             
+                <div className="element">                
+                <NavBtn/>
+                <CardList/>
+                {/* <ReviewBtn/> */}
+                <ScrollBtn/>
+                </div>
             </div>
-            <div className="element">
-                <NavBtn />
-                <CardList />
-                <ScrollBtn />
-            </div>
-        </div>
         </>
     )
 }

@@ -1,11 +1,12 @@
 //메인페이지 배너
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../../css/partCss/Banner.css"
+import "../../css/partCss/Banner.css";
 import Button from '../Button';
+import { BsStarFill, BsStar } from "react-icons/bs"
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { DetailCafeBanner } from '../../redux/modules/AllSlice';
@@ -19,58 +20,78 @@ const DetailBanner = (images) => {
     dispatch(DetailCafeBanner(parm.id))
   }, [dispatch, parm.id])
 
+  console.log(parm)
   const list = useSelector((state) => state.AllSlice.DetailCafeBanner);
-  console.log(list?.data.imageList)
+  console.log(list?.imageList)
+  // console.log(list?.opentime, "오픈시간" , list?.opentime.split("").slice(0,2))
   console.log(list)
+  const defaultTime = [0, 0, 0, 0]
 
   const settings = {
     slide: 'div',
     infinite: true,
-    speed: 1000,
+    speed: 500,
     slideToShow: 15,
     variableWidth: true,
     slideToScroll: 15,
     autoplay: true,
     autoplaySpeed: 4000,
+    nextArrow: <Button place="right" margin="0 0 0 590px" />,
+    prevArrow: <Button margin="0 0 0 -590px" />,
   };
 
   return (
-    <> 
-    
-    <div className='bannerDiv'>
-      <div className='sizeDiv'>
-        <div className='cafeInfo'>
-          <div className='logoDiv'>
-            <img className='cafeLogo' src={list?.data.logoimg}></img>
-          </div>
-          <div className='cafeNameDiv'>
-            {list?.data.cafename}
-          </div>
-          <div className='star-reviewCntDiv'>
-            {list?.data.avgstar}
-            {list?.data.postCnt}
-          </div>
-          <div className='open-close-time'>
-            {list?.data.opentime}
-            {list?.data.closetime}
-          </div>
-        </div>
+    <>
+      <div className='bannerDiv'>
+        <div className='sizeDiv'>
+          <div className='cafeInfo'>
+            <div className='logoDiv'>
+              <img className='cafeLogo' src={list?.logoimg}></img>
+            </div>
+            <div className='cafeInfoDiv'>
+              <div className='cafeNameDiv'>
+                {list?.cafename}
+              </div>
+              <div className='star-reviewCntDiv'>
+                <span style={{ marginRight: "15px" }}>
 
-        {
-          (() => {
-            if (list?.data.imageList.length === 0)
-              return (
-                <>
-                  <div className='nullBanner'>
-                  </div>
-                </>
-              );
-            else
-              return (
+                  {Array.from({ length: 5 }, (items, i) => (
+                    <>
+                      <span
+                        style={{
+                          fontSize: "35px",
+                          color: "white",
+                          cursor: "pointer",
+
+                        }}
+                      > {list?.avgstar < i + 1 ? <BsStar /> : <BsStarFill />}</span>
+                    </>
+                  ))}
+                </span>
+                {list?.postCnt} reviews
+              </div>
+              <div className='open-close-time'>
+                <span style={{ marginRight: "10px" }}>영업시간</span>
+                AM {!list?.opentime ? "00" : list?.opentime.slice(0, 2)}:{!list?.opentime ? "00" : list?.opentime.slice(2, 4)} -
+                PM {!list?.closetime ? "00" : list?.closetime.slice(0, 2)}:{!list?.closetime ? "00" : list?.closetime.slice(2, 4)}
+              </div>
+            </div>
+          </div>
+
+          {
+            (() => {
+              if (list?.imageList.length === 0)
+                return (
+  
+                    <div className='nullBanner' style={{all:"none"}}>
+                    </div>
+                 
+                );
+              else
+                return (<>
                   <StyledSlider className='slider' {...settings}>
-                    {list?.data.imageList.map((item, i) => (
+                    {list?.imageList.map((item, i) => (
                       <>
-                        
                         <div className='imgItem'>
                           <img height={450} src={item.img} alt='slider' />
                         </div>
@@ -78,14 +99,13 @@ const DetailBanner = (images) => {
                       </>
                     ))}
                   </StyledSlider>
-
-              );
-          })()
-        }
+                </>
+                );
+            }
+            )()
+          }
+        </div>
       </div>
-
-
-    </div>
 
     </>
 
@@ -97,6 +117,7 @@ const StyledSlider = styled(Slider)`
    width: 100%;
    margin-bottom: 40px;
    box-sizing: border-box;
+   background-color: #19221F;
 
   .slick-list {  //슬라이드 스크린
     max-width: 100%;
@@ -109,7 +130,7 @@ const StyledSlider = styled(Slider)`
   }
 
   .slick-slide div { //슬라이더  컨텐츠
-    width: absolution;
+    width: fit-content;
     cursor: pointer;
     outline: none;
   }
