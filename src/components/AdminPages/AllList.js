@@ -2,6 +2,9 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { CafeApplyList, CafeApprove } from "../../redux/modules/adminSlice";
+import { MdCancel,MdCheckCircleOutline } from "react-icons/md";
+import { GiCancel } from "react-icons/gi";
+
 
 const AllList = () => {
     const dispatch = useDispatch()
@@ -28,26 +31,29 @@ const AllList = () => {
                 <div className="Cards"
                     key={i}>
                     <div className="cafeCards">
-                        <span className="cafeListName">{item?.cafename} </span>
+                        <span className="cafeListName">{item?.cafename} </span><br/>
                         <span className="cafeListDetail">
                             {item?.address}&nbsp;
                             {item?.addressdetail} <br />
                             {item?.zonenum}
-                        </span>
-                        <button
-                        onClick={()=>{CafeApply(
-                            item?.registerid, 
-                            false
-                            ); 
-                
-                            }}>⨉</button>
-                        <button 
+                        </span><br/>
+                        <MdCheckCircleOutline
                         onClick={()=>{CafeApply(
                             item?.registerid, 
                             true
                             ); 
                 
-                            }}>⩗</button>
+                            }}
+                            className="registerButton">MdCheckCircleOutline</MdCheckCircleOutline>
+                        <MdCancel
+                        onClick={()=>{CafeApply(
+                            item?.registerid, 
+                            false
+                            ); 
+                
+                            }}
+                            className="cancelButton">MdCancel</MdCancel>
+                        
                     </div>
                     
                 </div>

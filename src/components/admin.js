@@ -44,37 +44,41 @@ const Admin = () => {
         <div className="totalDiv">
             <div className="conDiv">
                 <div className="leftConDiv">
-                    <h2 className="detailLine">
+                    <div className="detailLine">
                         오늘도 일해주세요!<br/>
                         관리자님!
-                    </h2>
+                    </div>
                     <button
                     onClick={()=>{
                         setSubMenu("A")
                     }}
+                    className="leftButtonsTop"
                     >
-                        전체 등록 리스트 {list?.length}개 &gt;
-                    </button>
-                    <button
-                    onClick={()=>{
-                        setSubMenu("B")
-                    }}
-                    >
-                    <BsCheckSquareFill size="15" color="green"/> 최종 승인 카페 {list1?.length}개&gt;
-                    </button>
-                    <button
-                    onClick={()=>{
-                        setSubMenu("C")
-                    }}
-                    >
-                        <BsCheckSquare size="15" color="green"/> 최종 거절 카페 {list2?.length}개 &gt;
+                    전체 등록 리스트 <span className="cntCafes">{list?.length}개  &gt;</span>
                     </button>
                     <button
                     onClick={()=>{
                         setSubMenu("D")
                     }}
+                    className="leftButtons"
                     >
-                    개설된 카페 {list3?.length}개 &gt;
+                    개설된 카페<span className="cntCafes">{list3?.length}개  &gt;</span>
+                    </button>
+                    <button
+                    onClick={()=>{
+                        setSubMenu("B")
+                    }}
+                    className="leftButtons"
+                    >
+                    <BsCheckSquareFill size="15" color="green"/> 최종 승인 카페 <span className="cntCafes">{list1?.length}개 &gt;</span>
+                    </button>
+                    <button
+                    onClick={()=>{
+                        setSubMenu("C")
+                    }}
+                    className="leftButtons"
+                    >
+                    <BsCheckSquare className="checkV" size="15" color="green"/> 최종 거절 카페<span className="cntCafes">{list2?.length}개  &gt;</span>
                     </button>
                 </div>
                 <div className="rightConDiv">
@@ -85,7 +89,7 @@ const Admin = () => {
                         subMenu === "D" && <h3 className="registerState">개설된 카페</h3>
 
                     }
-                    <hr />
+                    <hr/>
                     <div className="listDiv">
                         {
                             subMenu === "A" && <AllList /> ||
