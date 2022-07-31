@@ -39,6 +39,11 @@
     color: #19221f;
     margin: 25px 40px auto 310px;
 }
+.ExitBtnGreen{
+    width: 12px;
+    height: 12px;
+    margin: 0 0px 0 5px;
+}
 
 
 /*로그인 모달*/
@@ -278,13 +283,47 @@ footer > .SignBtn{
     height: 40px;
     margin: 30px auto 0 auto;
 }
-
-.ReviewSection > span{
-    font-family: "Arita-dotum-Medium";
-    font-size: 16px;
-    line-height: 16px;
-    color: #19221F;
+/*별점박스*/
+.ReviewStarBox{
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0 15px 0;
 }
+.ReviewStarBox > span{
+    font-family: "Arita-dotum-Medium";
+    color: #19221F;
+    font-size: 16px;
+    margin-left: 10px;
+}
+.ReviewStar{
+    
+    height: 30px; 
+    margin-right: 10px;
+    color: #3FC275;
+    margin: 10px 0 0 10px;
+    
+}
+
+
+/*해시태그박스*/
+.ReviewHash > span{
+    font-family: "Arita-dotum-Medium";
+    color: #19221F;
+    font-size: 16px;
+    margin-left: 10px;
+}
+.ReviewHash{
+    margin-bottom: 15px;
+}
+
+/*리뷰박스*/
+.ReviewBox > span{
+    font-family: "Arita-dotum-Medium";
+    color: #19221F;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
 
 
 /*사진업로드*/
@@ -294,7 +333,7 @@ footer > .SignBtn{
 }
 
 .ImageDiv > span {
-    font-Size: 20px;
+    font-Size: 16px;
     color: #19221f;
     font-Family: "Arita-dotum-SemiBold";
 }
@@ -322,6 +361,7 @@ footer > .SignBtn{
     color: white;
     font-family: "Arita-dotum-SemiBold";
     font-size: 20px;
+    margin-bottom: 20px;
 }
 
 

@@ -373,7 +373,7 @@ const SignupModal = (props) => {
                     {Upimage.map((image, i) => (
                       <div key={i}>
                         <img
-                          style={{ width: "100px", height: "100px" }}
+                          style={{ width: "100%", height: "100%" }}
                           src={image}
                           alt={`${image}-${i}`}
                           onClick={() => handleDeleteImage(i)}

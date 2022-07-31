@@ -235,22 +235,41 @@ const ReviewModal = (props) => {
               </DropDownBox>
             )}
             <Body>
-              <div className="ReviewSection">
-                <span>별점</span>
-                <div>
-                  {Array.from({ length: 5 }, (items, i) => (
-                    <>
-                      <span
-                        onClick={() => {
-                          setStar(i + 1);
-                        }}>
-                        {" "}
-                        {star < i + 1 ? <BsStar /> : <BsStarFill />}
-                      </span>
-                    </>
-                  ))}
+              <div>
+                <div className="ReviewStarBox">
+                  <span>별점</span>
+                  <div className="ReviewStar">
+                    {Array.from({ length: 5 }, (items, i) => (
+                      <>
+                        <span
+                          onClick={() => {
+                            setStar(i + 1);
+                          }}>
+                          {" "}
+                          {star < i + 1 ? (
+                            <BsStar
+                              style={{
+                                width: "30px",
+                                height: "30px",
+                                marginRight: "5px",
+                              }}
+                            />
+                          ) : (
+                            <BsStarFill
+                              style={{
+                                width: "30px",
+                                height: "30px",
+                                marginRight: "5px",
+                              }}
+                            />
+                          )}
+                        </span>
+                      </>
+                    ))}
+                  </div>
                 </div>
-                <div>
+
+                <div className="ReviewHash">
                   <span>해시태그</span>
                   <div>
                     <Hashtag
@@ -266,14 +285,17 @@ const ReviewModal = (props) => {
                         return (
                           <TagItem key={index}>
                             <Text>{tagItem}</Text>
-                            <Button onClick={deleteTagItem}>X</Button>
+                            <AiOutlineClose
+                              className="ExitBtnGreen"
+                              onClick={deleteTagItem}
+                            />
                           </TagItem>
                         );
                       })}
                     </TagBox>
                   </div>
                 </div>
-                <div>
+                <div className="ReviewBox">
                   <span>리뷰</span>
                   <div>
                     <ReviewArea
@@ -286,17 +308,9 @@ const ReviewModal = (props) => {
                 <div className="ImageDiv">
                   <span>리뷰 사진 업로드</span>
 
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      flexDirection: "column",
-                    }}>
+                  <div>
                     <div className="FileUpload">
-                      <label
-                        htmlFor="input-file"
-                        onChange={handleAddImages}
-                        style={{ marginTop: "15px" }}>
+                      <label htmlFor="input-file" onChange={handleAddImages}>
                         <input
                           type="file"
                           id="input-file"
@@ -314,7 +328,7 @@ const ReviewModal = (props) => {
                       {Upimage.map((image, i) => (
                         <div key={i}>
                           <img
-                            style={{ width: "100px", height: "100px" }}
+                            style={{ width: "100%", height: "100%" }}
                             src={image}
                             alt={`${image}-${i}`}
                             onClick={() => handleDeleteImage(i)}
@@ -347,66 +361,55 @@ const ReviewModal = (props) => {
 };
 /// 자동완성 css
 const InputBox = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  font-family: "Arita-dotum-Medium";
+  width: 290px;
+  height: 40px;
 `;
 
 const DeleteButton = styled.div`
   cursor: pointer;
 `;
 const DropDownBox = styled.ul`
-  width: 77%;
+  width: 290px;
   display: block;
-  margin: 0 auto;
-  font-family: "Arita-dotum-Medium";
+  margin: 5px auto;
+  font-family: "Arita-dotum-Light";
   padding: 8px 0;
   background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-top: none;
-  box-shadow: 0 10px 10px rgb(0, 0, 0, 0.3);
+  border: 1px solid #f3eed9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   list-style-type: none;
   z-index: 3;
+  border-radius: 3px;
 `;
 
 const DropDownItem = styled.li`
-  padding: 0 16px;
-  font-family: "Arita-dotum-Medium";
+  padding: 10px;
+  font-family: "Arita-dotum-Light";
 
   &.selected {
     background-color: #3fc275;
+    color: white;
   }
 `;
 
+//해시태그
 const TagItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 5px;
+  margin: 10px 0 0 10px;
   padding: 5px;
-  /* background-color: #3FC275; */
-  border-radius: 20px;
+  border-radius: 100px;
   color: #3fc275;
-  font-size: 13px;
+  font-size: 12px;
   border: 1px solid #3fc275;
-  font-family: "Arita-dotum-Medium";
+  font-family: "Arita-dotum-Light";
 `;
 
-const Text = styled.span``;
-
-const Button = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Arita-dotum-Medium";
-  width: 15px;
-  height: 15px;
-  margin-left: 5px;
-  background-color: white;
-  border-radius: 50%;
+const Text = styled.span`
+  font-family: "Arita-dotum-Light";
   color: #3fc275;
+  font-size: 12px;
 `;
 
 const TagBox = styled.div`
@@ -417,24 +420,64 @@ const TagBox = styled.div`
 
 const Hashtag = styled.input`
   display: inline-flex;
-  width: 80%;
-  border: 1px solid #bbb;
-  border-radius: 4px;
-  padding: 10px 12px;
-  font-size: 14px;
-  box-shadow: 0 4px 4px -4px black;
-  margin-top: 20px;
+  width: 290px;
+  border: 2px solid #f3eed9;
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 16px;
+  font-family: "Arita-dotum-Light";
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
   cursor: text;
+  ::placeholder {
+    color: #19221f;
+    font-size: 16px;
+    font-family: "Arita-dotum-Light";
+  }
 `;
 
 //////////////
 const Title = styled.span``;
 
-const Body = styled.div``;
+const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+`;
 
-const Search = styled.input``;
+//카페 검색 input
+const Search = styled.input`
+  width: 290px;
+  height: 40px;
+  border: none;
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Arita-dotum-Medium";
+  padding: 10px;
+  color: #19221f;
+  margin-bottom: 15px;
+  ::placeholder {
+    color: #19221f;
+    font-size: 16px;
+    font-family: "Arita-dotum-Medium";
+  }
+`;
 
-const ReviewArea = styled.textarea``;
+//리뷰 입력
+const ReviewArea = styled.textarea`
+  width: 290px;
+  height: 200px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 2px solid #f3eed9;
+  border-radius: 3px;
+  font-family: "Arita-dotum-Light";
+  font-size: 16px;
+  line-height: 16px;
+  color: #19221f;
+  padding: 10px;
+  margin-top: 10px;
+`;
 
 const UploadBtn = styled.button``;
 
