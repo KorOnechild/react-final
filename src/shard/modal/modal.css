@@ -113,7 +113,7 @@
     color: white;
     font-family: "Arita-dotum-SemiBold";
     font-size: 25px;
-    margin-top: 10px;
+    margin-top: 15px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
     border: 0;
     
@@ -126,7 +126,7 @@
     color: #19221F;
     font-family: "Arita-dotum-Bold";
     font-size: 25px;
-    margin: 40px 155px auto 44px;
+    margin: 40px auto auto 44px;
 }
 .CheckBoxTotal{
     display: flex;
@@ -266,6 +266,7 @@ footer > .SignBtn{
     color: white;
     font-family: "Arita-dotum-SemiBold";
     font-size: 20px;
+    margin-bottom: 20px;
 }
 
 /*리뷰창 모달*/

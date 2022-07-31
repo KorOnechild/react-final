@@ -249,7 +249,7 @@ const SignupModal = (props) => {
     <>
       <div className={open ? "openModal modal" : "modal"}>
         {open ? (
-          <section>
+          <section style={{ overflowY: "scroll", overflowX: "hidden" }}>
             <div onClick={close}>
               <span>
                 <AiOutlineClose className="ExitBtnBlack" />
